@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1135462569866859810}
   m_Layer: 0
   m_Name: HardBlock
-  m_TagString: Untagged
+  m_TagString: DestroyFireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

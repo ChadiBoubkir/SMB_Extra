@@ -4,6 +4,7 @@ public class PowerUp : MonoBehaviour
 {
     public ParticleSystem extraLifeParticle;
     public ParticleSystem mushroomParticle;
+    public ParticleSystem fireParticle;
     public ParticleSystem starParticle;
     public ParticleSystem coinParticle;
     private bool once = true;
@@ -13,6 +14,7 @@ public class PowerUp : MonoBehaviour
         Coin,
         ExtraLife,
         MagicMushroom,
+        FireFlower,
         StarPower,
     }
 
@@ -64,6 +66,25 @@ public class PowerUp : MonoBehaviour
                     var em = mushroomParticle.emission;
                     em.enabled = true;
                     mushroomParticle.Play();
+
+                    once = false;
+                }
+                break;
+
+            case Type.FireFlower:
+                if (player.GetComponent<Player>().small) {
+                    player.GetComponent<Player>().wasSmall = true;
+                    player.GetComponent<Player>().FirePower();
+                }else if (player.GetComponent<Player>().big) {
+                    player.GetComponent<Player>().wasSmall = false;
+                    player.GetComponent<Player>().FirePower();
+                }
+
+                if (fireParticle != null && once)
+                {
+                    var em = fireParticle.emission;
+                    em.enabled = true;
+                    fireParticle.Play();
 
                     once = false;
                 }

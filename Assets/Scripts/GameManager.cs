@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     public int stage;
     public int lives;
     public int coins;
+
+    public bool small = true;
+    public bool big = false;
+    public bool fire = false;
+
     public Canvas canvas;
     public Text livesText;
     public Text coinsText;
@@ -45,12 +50,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 90;
         NewGame();
     }
 
     public void NewGame()
     {
+        small = true;
+        big = false;
+        fire = false;
+
         lives = 3;
         coins = 0;
 
@@ -82,13 +91,16 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel(float delay)
     {
+        small = true;
+        big = false;
+        fire = false;
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             Invoke(nameof(ResetLevel), delay);
         }
     }
 
-    public void ResetLevel()
+    private void ResetLevel()
     {
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {

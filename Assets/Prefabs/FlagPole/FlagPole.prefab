@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3106510619948975047}
   m_Layer: 0
   m_Name: Flag
-  m_TagString: Untagged
+  m_TagString: FlagPole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 3106510621030209575}
   m_Layer: 0
   m_Name: Pole
-  m_TagString: Untagged
+  m_TagString: FlagPole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -31,6 +31,8 @@ public class Koopa : MonoBehaviour
             {
                 player.Hit();
             }
+        }else if (collision.gameObject.CompareTag("Projectile")) {
+            Hit();
         }
     }
 
@@ -76,6 +78,8 @@ public class Koopa : MonoBehaviour
         }
         else if (!shelled && other.gameObject.layer == LayerMask.NameToLayer("Shell"))
         {
+            Hit();
+        }else if (other.gameObject.CompareTag("Projectile")) {
             Hit();
         }
     }

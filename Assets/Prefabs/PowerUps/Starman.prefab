@@ -195,10 +195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9effa24bb4f905e4f812bdc034f8af45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraParticle: {fileID: 0}
+  extraLifeParticle: {fileID: 0}
   mushroomParticle: {fileID: 0}
+  fireParticle: {fileID: 0}
   starParticle: {fileID: 7990381449675954008}
-  type: 3
+  coinParticle: {fileID: 0}
+  type: 4
 --- !u!1001 &914335205092273890
 PrefabInstance:
   m_ObjectHideFlags: 0

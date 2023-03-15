@@ -42,6 +42,7 @@ public class DeathAnimation : MonoBehaviour
 
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();
         EntityMovement entityMovement = GetComponent<EntityMovement>();
+        VenoombaMovement venoombaMovement = GetComponent<VenoombaMovement>();
 
         if (playerMovement != null)
         {
@@ -51,6 +52,11 @@ public class DeathAnimation : MonoBehaviour
         if (entityMovement != null)
         {
             entityMovement.enabled = false;
+        }
+
+        if (venoombaMovement != null)
+        {
+            venoombaMovement.enabled = false;
         }
     }
 

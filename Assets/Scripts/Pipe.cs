@@ -4,6 +4,12 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     public Transform connection;
+
+    public GameObject top;
+    public GameObject bottom;
+    public bool destroy = false;
+    private bool finished = false;
+    private bool disappeared = false;
     public KeyCode enterKeyCode = KeyCode.S;
     public Vector3 enterDirection = Vector3.down;
     public Vector3 exitDirection = Vector3.zero;
@@ -43,6 +49,46 @@ public class Pipe : MonoBehaviour
         }
 
         player.GetComponent<PlayerMovement>().enabled = true;
+        finished = true;
+        Disappear();
+
+        
+    }
+
+    private void Disappear() {
+        if (destroy && finished) {
+            StartCoroutine(Fade());
+        }
+    }
+
+    private IEnumerator Fade() {
+
+        float elapsed = 0f;
+        float duration = 1f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                if (top.GetComponent<SpriteRenderer>().color.a > 0f) {
+                    top.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.1f);
+                }else {
+                    disappeared = true;
+                }
+            }
+
+            yield return null;
+        }
+        
+    }
+
+    void Update() {
+        bottom.GetComponent<SpriteRenderer>().color = top.GetComponent<SpriteRenderer>().color;
+        if(top != null && bottom != null && top.GetComponent<SpriteRenderer>().color.a == 0f) {
+            DestroyImmediate(gameObject);
+        }
     }
 
     private IEnumerator Move(Transform player, Vector3 endPosition, Vector3 endScale)

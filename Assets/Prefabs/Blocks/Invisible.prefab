@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 5164772806764320963}
   - component: {fileID: 1752214331624152591}
   - component: {fileID: 8826237658112699097}
-  - component: {fileID: 7987965446735661948}
+  - component: {fileID: 6697413962966328334}
+  - component: {fileID: 9026893112162967062}
   m_Layer: 0
   m_Name: Invisible
-  m_TagString: Untagged
+  m_TagString: DestroyFireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +131,7 @@ MonoBehaviour:
   particles: {fileID: 0}
   maxHits: 1
   once: 1
---- !u!251 &7987965446735661948
+--- !u!251 &6697413962966328334
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,4 +149,18 @@ PlatformEffector2D:
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 1
+  m_SideArc: 0
+--- !u!114 &9026893112162967062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082900105685965516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f30de960ca00b4a86ab3f91a4fd6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireFlower: {fileID: 3164859331769601883, guid: f7dfe73a3266adf42aec043c379d026e, type: 3}
+  magicMushroom: {fileID: 7038042982876825976, guid: 91d17c4d77a426f4c9eb60986db0d66c, type: 3}

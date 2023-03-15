@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2824442124421688965}
   m_Layer: 7
   m_Name: Goomba
-  m_TagString: Untagged
+  m_TagString: Goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: -1, y: 0}
-  maxJumpHeight: 3
-  maxJumpTime: 4
-  starman: {fileID: 21300000, guid: 144bfde5a555c7a488bb641f19c637bf, type: 3}
+  starman: 0
+  maxBounceHeight: 3
+  maxBounceTime: 4
 --- !u!114 &8615148420229039671
 MonoBehaviour:
   m_ObjectHideFlags: 0

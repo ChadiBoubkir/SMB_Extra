@@ -21,19 +21,6 @@ public class EntityMovement : MonoBehaviour
         enabled = false;
     }
 
-    private void Update()
-    {
-        if (starman)
-        {
-            grounded = rigidbody.Raycast(Vector2.down);
-            if (grounded)
-            {
-                Bounce();
-            }
-            ApplyGravity();
-        }
-    }
-
     private void Bounce()
     {
         velocity.y = bounceForce;
@@ -71,6 +58,21 @@ public class EntityMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (starman)
+        {
+            if (gameObject.tag != "Koopa") {
+                grounded = rigidbody.Raycast(Vector2.down);
+            }else {
+                grounded = rigidbody.KoopaRaycast(Vector2.down);
+            }
+            
+            if (grounded)
+            {
+                Bounce();
+            }
+            ApplyGravity();
+        }
+
         velocity.x = direction.x * speed;
         velocity.y += Physics2D.gravity.y * Time.fixedDeltaTime;
 

@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FlagPole
+  - Boss
+  - Small
+  - Big
+  - Projectile
+  - Koopa
+  - Goomba
+  - DestroyFireball
+  - BackgroundItem
+  - PGDetector
   layers:
   - Default
   - TransparentFX
@@ -15,10 +25,10 @@ TagManager:
   - Enemy
   - Shell
   - Margin
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - MarioFire
+  - Background
+  - PGDetector
   - 
   - 
   - 
@@ -43,4 +53,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2030785757
     locked: 0

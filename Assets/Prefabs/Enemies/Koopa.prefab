@@ -186,6 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: -1, y: 0}
+  starman: 0
+  maxBounceHeight: 3
+  maxBounceTime: 4
 --- !u!114 &6400025593183768295
 MonoBehaviour:
   m_ObjectHideFlags: 0

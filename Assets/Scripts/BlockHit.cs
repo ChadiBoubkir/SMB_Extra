@@ -31,16 +31,26 @@ public class BlockHit : MonoBehaviour
 
     private void Update()
     {
-        if (GetComponent<SpriteRenderer>().enabled == false)
+        if (GetComponent<SpriteRenderer>().sprite == null)
         {
             maxHits = 1;
             BoxCollider2D box = GetComponent<BoxCollider2D>();
             box.usedByEffector = true;
+            box.offset = new Vector2(0f, -0.25f);
+            box.size = new Vector2(1f, 0.5f);
+
+            if (GetComponent<PlatformEffector2D>() != null)
+            {
+                PlatformEffector2D platformEffector = GetComponent<PlatformEffector2D>();
+                platformEffector.enabled = true;
+            }
         }
         else
         {
             BoxCollider2D box = GetComponent<BoxCollider2D>();
             box.usedByEffector = false;
+            box.offset = new Vector2(0f, -0f);
+            box.size = new Vector2(1f, 1f);
 
             if (GetComponent<PlatformEffector2D>() != null)
             {
@@ -52,7 +62,7 @@ public class BlockHit : MonoBehaviour
 
     private void Hit()
     {
-        if ((mario.GetComponent<Player>().small) || (mario.GetComponent<Player>().big && maxHits > 0))
+        if ((mario.GetComponent<Player>().small) || (mario.GetComponent<Player>().big && maxHits > 0) || (mario.GetComponent<Player>().fire && maxHits > 0))
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.enabled = true;
@@ -71,7 +81,7 @@ public class BlockHit : MonoBehaviour
 
             StartCoroutine(Animate());
         }
-        else if (mario.GetComponent<Player>().big && maxHits < 0)
+        else if ((mario.GetComponent<Player>().big && maxHits < 0) || (mario.GetComponent<Player>().fire && maxHits < 0))
         {
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;

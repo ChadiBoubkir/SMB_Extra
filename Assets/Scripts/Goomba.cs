@@ -28,6 +28,8 @@ public class Goomba : MonoBehaviour
             {
                 player.Hit();
             }
+        }else if (collision.gameObject.CompareTag("Projectile")) {
+            Hit();
         }
     }
 

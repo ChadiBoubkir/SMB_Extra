@@ -8,6 +8,9 @@ public class FlagPole : MonoBehaviour
     public Transform castle;
     public float speed = 4f;
 
+    public bool onPole = false;
+    public bool toCastle = false;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -21,7 +24,11 @@ public class FlagPole : MonoBehaviour
     {
         player.GetComponent<PlayerMovement>().enabled = false;
 
+        onPole = true;
+        toCastle = false;
         yield return MoveTo(player, poleBottom.position);
+        onPole = false;
+        toCastle = true;
         yield return MoveTo(player, player.position + Vector3.right);
         yield return MoveTo(player, player.position + Vector3.right + Vector3.down);
         yield return MoveTo(player, castle.position);
